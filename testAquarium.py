@@ -41,7 +41,7 @@ class AquariumTest(unittest.TestCase):
         aq.addFish([Tang("test", 1, 'red', False), Clownfish("test", 1, 'red', 'blue')])
         self.assertEqual(len(aq.fishes), 2)
         self.assertIsInstance(aq.fishes[1], Clownfish)
-        
+
         # add multiple elements to a list with existing elements
         aq = Aquarium(Tang("test", 1, 'red', False))
         aq.addFish([Tang("test", 1, 'red', False), Clownfish("test", 1, 'red', 'blue')])
@@ -84,6 +84,7 @@ class AquariumTest(unittest.TestCase):
         # two lists
         aq = Aquarium([Tang("test", 1, 'red', False), Clownfish("test", 1, 'red', 'blue')])
         self.assertEqual(aq.getStatus(), "test, weight: 1, color: red, short-term memory loss: falsetest, weight: 1, color: red, stripes: blue")
+
 
 if __name__ == "__main__":
     unittest.main()

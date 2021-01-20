@@ -1,6 +1,6 @@
 from typing import List
 from Fish import Fish
-from os import linesep
+
 
 class Aquarium:
 
@@ -11,8 +11,6 @@ class Aquarium:
             self.fishes = []
         elif isinstance(fishes, Fish) or isinstance(fishes.super(), Fish):
             self.fishes = [fishes]
-            
-
 
     def addFish(self, fishes):
         if isinstance(fishes, List):
@@ -25,9 +23,14 @@ class Aquarium:
             fish.feed()
 
     def removeFish(self):
+        # removing on the fly would change the length of the list, hence we first find what to remove and then remove them in the second loop
+        removable = []
         for i in range(len(self.fishes)):
             if self.fishes[i].weight >= 11:
-                self.fishes.remove(self.fishes[i])
+                removable.append(self.fishes[i])
+
+        for fish in removable:
+            self.fishes.remove(fish)
 
     def getStatus(self):
         text = ""
